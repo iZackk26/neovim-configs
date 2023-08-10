@@ -1,0 +1,36 @@
+# iZack's Neovim Configs
+```
+ ██▓▒███████▒ ▄▄▄       ▄████▄   ██ ▄█▀  ██████     ███▄    █ ██▒   █▓ ██▓ ███▄ ▄███▓    ▄████▄   ▒█████   ███▄    █   █████▒██▓  ▄████   ██████ 
+▓██▒▒ ▒ ▒ ▄▀░▒████▄    ▒██▀ ▀█   ██▄█▒ ▒██    ▒     ██ ▀█   █▓██░   █▒▓██▒▓██▒▀█▀ ██▒   ▒██▀ ▀█  ▒██▒  ██▒ ██ ▀█   █ ▓██   ▒▓██▒ ██▒ ▀█▒▒██    ▒ 
+▒██▒░ ▒ ▄▀▒░ ▒██  ▀█▄  ▒▓█    ▄ ▓███▄░ ░ ▓██▄      ▓██  ▀█ ██▒▓██  █▒░▒██▒▓██    ▓██░   ▒▓█    ▄ ▒██░  ██▒▓██  ▀█ ██▒▒████ ░▒██▒▒██░▄▄▄░░ ▓██▄   
+░██░  ▄▀▒   ░░██▄▄▄▄██ ▒▓▓▄ ▄██▒▓██ █▄   ▒   ██▒   ▓██▒  ▐▌██▒ ▒██ █░░░██░▒██    ▒██    ▒▓▓▄ ▄██▒▒██   ██░▓██▒  ▐▌██▒░▓█▒  ░░██░░▓█  ██▓  ▒   ██▒
+░██░▒███████▒ ▓█   ▓██▒▒ ▓███▀ ░▒██▒ █▄▒██████▒▒   ▒██░   ▓██░  ▒▀█░  ░██░▒██▒   ░██▒   ▒ ▓███▀ ░░ ████▓▒░▒██░   ▓██░░▒█░   ░██░░▒▓███▀▒▒██████▒▒
+░▓  ░▒▒ ▓░▒░▒ ▒▒   ▓▒█░░ ░▒ ▒  ░▒ ▒▒ ▓▒▒ ▒▓▒ ▒ ░   ░ ▒░   ▒ ▒   ░ ▐░  ░▓  ░ ▒░   ░  ░   ░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒░   ▒ ▒  ▒ ░   ░▓   ░▒   ▒ ▒ ▒▓▒ ▒ ░
+ ▒ ░░░▒ ▒ ░ ▒  ▒   ▒▒ ░  ░  ▒   ░ ░▒ ▒░░ ░▒  ░ ░   ░ ░░   ░ ▒░  ░ ░░   ▒ ░░  ░      ░     ░  ▒     ░ ▒ ▒░ ░ ░░   ░ ▒░ ░      ▒ ░  ░   ░ ░ ░▒  ░ ░
+ ▒ ░░ ░ ░ ░ ░  ░   ▒   ░        ░ ░░ ░ ░  ░  ░        ░   ░ ░     ░░   ▒ ░░      ░      ░        ░ ░ ░ ▒     ░   ░ ░  ░ ░    ▒ ░░ ░   ░ ░  ░  ░  
+ ░    ░ ░          ░  ░░ ░      ░  ░         ░              ░      ░   ░         ░      ░ ░          ░ ░           ░         ░        ░       ░  
+    ░                  ░                                          ░                     ░                                                        
+
+```
+This are my Neovim configs for arch linux.
+
+## How to install:
+* Install Neovim in your system
+* Install Packer in your system
+* Clone this repo in your `~/.config` folder
+
+```sh
+git clone https://github.com/iZackk26/nvim ~/.config/nvim
+```
+
+## How to use it and configure it:
+This configs are divided in several folder with follow this order:
+```
+---lua
+------plugins
+---plugin
+```
+- `lua/lsp`: LSPs configuration.
+- `lua/keymaps`: Keymapping of all shortcuts
+- `lua/init`: Includes all the requirements and plugins
+- `lua/plugin/init`: Here are all the imports of plugins, themes and more.
