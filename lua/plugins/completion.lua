@@ -1,5 +1,5 @@
-local cmp = require'cmp'
-
+local success, cmp = pcall(require, "cmp")
+if not success then return end
 cmp.setup({
     snippet = {
       -- REQUIRED - you must specify a snippet engine

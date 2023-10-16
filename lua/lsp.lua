@@ -20,10 +20,18 @@ local function on_attach()
     vim.keymap.set('n', '<leader>q', vim.lsp.diagnostic.set_loclist)
 end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+--
+local success, capabilities = pcall(require, "cmp_nvim_lsp")
+
+if not success then return end
+capabilities = capabilities.default_capabilities()
+
+local ok, lspconfig = pcall(require, "lspconfig")
+if not ok then return end
 
 for _, server in ipairs(servers) do
-    require("lspconfig")[server].setup {
+    lspconfig[server].setup {
         capabilities = capabilities,
         on_attach = on_attach,
         flags = {
