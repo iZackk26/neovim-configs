@@ -1,4 +1,4 @@
--- Vimtex config
+-- -- Vimtex config
 vim.g.tex_flavor = 'latex'
 vim.g.indentLine_setConceal = 0
 vim.g.vimtex_view_method = 'zathura'

@@ -9,7 +9,7 @@ vim.cmd [[
 
 -- Colorscheme
 -- vim.cmd.colorscheme('tokyonight')
-vim.cmd.colorscheme('kanagawa')
+pcall(vim.cmd.colorscheme,'kanagawa')
 -- Numbers column
 vim.o.number = true
 vim.o.relativenumber = true

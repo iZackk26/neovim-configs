@@ -4,6 +4,9 @@ local servers = {
     "lua_ls",
     "clangd",
     "jdtls",
+    "texlab",
+    "emmet_ls",
+    "tsserver",
 }
 
 local function on_attach()

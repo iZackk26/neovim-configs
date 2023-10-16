@@ -44,7 +44,6 @@ require("packer").startup(function(use)
 
     -- Latex
     use 'lervag/vimtex'
-    
     -- Lua
     use {
         "folke/todo-comments.nvim",
