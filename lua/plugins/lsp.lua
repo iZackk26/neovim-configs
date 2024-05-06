@@ -1,6 +1,6 @@
 local servers = {
     "gopls",
-    "jedi_language_server",
+    "pyright",
     "lua_ls",
     "clangd",
     "jdtls",
@@ -20,58 +20,63 @@ local function on_attach()
     vim.keymap.set('n', '<leader>q', vim.lsp.diagnostic.set_loclist)
 end
 
--- local capabilities = require('cmp_nvim_lsp').default_capabilities()
---
 return {
-	"neovim/nvim-lspconfig",
-	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		'hrsh7th/cmp-nvim-lsp',
-		'hrsh7th/cmp-buffer',
-		'hrsh7th/cmp-path',
-		'hrsh7th/cmp-cmdline',
-		'hrsh7th/nvim-cmp'
-	},
+    "neovim/nvim-lspconfig",
+    dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        'hrsh7th/nvim-cmp'
+    },
 
-	config = function()
+    config = function()
+        local success, capabilities = pcall(require, "cmp_nvim_lsp")
+        if not success then return end
+        capabilities = capabilities.default_capabilities()
 
-	local success, capabilities = pcall(require, "cmp_nvim_lsp")
+        local ok, lspconfig = pcall(require, "lspconfig")
+        if not ok then return end
 
-	if not success then return end
-	capabilities = capabilities.default_capabilities()
-
-	local ok, lspconfig = pcall(require, "lspconfig")
-	if not ok then return end
-
-	for _, server in ipairs(servers) do
-	    lspconfig[server].setup {
-		capabilities = capabilities,
-		on_attach = on_attach,
-		flags = {
-		    debounce_text_changes = 150,
-		},
-		settings = {
-		    Lua = {
-			runtime = {
-			    version = 'LuaJIT',
-			},
-			diagnostics = {
-			    globals = { 'vim' },
-			},
-			workspace = {
-			    library = vim.api.nvim_get_runtime_file("", true),
-			},
-			telemetry = {
-			    enable = false,
-			},
-		    },
-		    Python = {
-			provideFormatter = true,
-			pythonFormatter = "black"
-		    },
-		}
-	
-	    }
-	end
-end
+        for _, server in ipairs(servers) do
+            lspconfig[server].setup {
+                capabilities = capabilities,
+                on_attach = on_attach,
+                flags = {
+                    debounce_text_changes = 150,
+                },
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = 'LuaJIT',
+                        },
+                        diagnostics = {
+                            globals = { 'vim' },
+                        },
+                        workspace = {
+                            library = vim.api.nvim_get_runtime_file("", true),
+                        },
+                        telemetry = {
+                            enable = false,
+                        },
+                    },
+                    Python = {
+                        analysis = {
+                            typeCheckingMode = "basic",
+                            autoSearchPaths = true,
+                            useLibraryCodeForTypes = true,
+                            reportOptionalCall = false,
+                            reportOptionalOperand = false,
+                        },
+                        pythonFormatter = {
+                            provideFormatter = true,
+                            pythonFormatter = "black",
+                        },
+                        diagnosticMode = "workspace",
+                    },
+                },
+            }
+        end
+    end
 }
+
