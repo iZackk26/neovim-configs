@@ -67,6 +67,11 @@ return {
                             useLibraryCodeForTypes = true,
                             reportOptionalCall = false,
                             reportOptionalOperand = false,
+                            reportUnboundVariable = false, 
+                            reportGeneralTypeIssues = false,     
+                            reportOptionalSubscript = false,     
+                            reportOptionalMemberAccess = false,  
+                            reportOptionalCall = false,
                         },
                         pythonFormatter = {
                             provideFormatter = true,
