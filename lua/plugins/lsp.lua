@@ -17,7 +17,7 @@ local function on_attach()
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references)
     vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
-    vim.keymap.set('n', '<leader>q', vim.lsp.diagnostic.set_loclist)
+    vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 end
 
 return {
