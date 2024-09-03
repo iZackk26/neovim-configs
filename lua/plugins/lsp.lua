@@ -7,9 +7,11 @@ local servers = {
     "texlab",
     "emmet_ls",
     "tsserver",
+    "hls",
+    -- "haskell_language_server",
 }
 
-local function on_attach()
+local function on_attach(client, bufnr)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover)
@@ -18,6 +20,10 @@ local function on_attach()
     vim.keymap.set('n', 'gr', vim.lsp.buf.references)
     vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
     vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+
+    if client.name == "hls" then
+        vim.keymap.set('n', '<leader>ll', vim.lsp.codelens.run, { buffer = bufnr })
+    end
 end
 
 return {

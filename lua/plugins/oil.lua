@@ -9,9 +9,12 @@ return {
 		    "icon",
 		    --"permissions",
 		    --"size",
-		    --"mtime",
-	    }
+        --"mtime",
+	    },
+      keymaps = {
+        ["<leader>,"] = "actions.open_cwd",
+      },
     })
-    vim.keymap.set("n","<M-b>","<CMD>Oil<CR>",{desc = "Open buffer list"})
+    vim.keymap.set("n","<C-b>","<CMD>Oil<CR>",{desc = "Open buffer list"})
   end,
 }

@@ -1,6 +1,9 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 local plugins_path = vim.fn.stdpath("config") .. "/nvim/plugins"
 
+-- Establecer la tecla <leader> como "\"
+vim.g.mapleader = '\\'
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
