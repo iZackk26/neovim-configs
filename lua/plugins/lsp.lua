@@ -9,8 +9,9 @@ local servers = {
     "emmet_ls",
     "ts_ls",
     "hls",
-    -- "haskell_language_server",
-    --
+    "efm",
+    "tailwindcss",
+    "volar"
 }
 
 local function on_attach(client, bufnr)
@@ -42,6 +43,31 @@ return {
 
         local ok, lspconfig = pcall(require, "lspconfig")
         if not ok then return end
+
+        -- Configuración para Volar (Vue.js)
+        lspconfig.volar.setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
+            init_options = {
+                typescript = {
+                    serverPath = vim.fn.glob("node_modules/.bin/tsserver", 1) or "tsserver",
+                },
+            },
+        }
+
+        -- Configuración para Tailwind CSS
+        lspconfig.tailwindcss.setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = {
+                tailwindCSS = {
+                    experimental = {
+                        classRegex = { 'tw`([^`]*)', 'tw="([^"]*)', 'tw={"([^"}]*)' }
+                    },
+                },
+            },
+        }
 
         for _, server in ipairs(servers) do
             lspconfig[server].setup {
