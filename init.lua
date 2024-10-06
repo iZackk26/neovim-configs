@@ -15,6 +15,18 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 
+vim.filetype.add({
+  extension = {
+    typst = "typst",
+  },
+})
+
+-- Asocia archivos .pl a Prolog en lugar de Perl
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = "*.pl",
+    command = "set filetype=prolog"
+})
+
 vim.opt.rtp:prepend(lazypath)
 require("config.tabulation")
 require("lazy").setup("plugins")

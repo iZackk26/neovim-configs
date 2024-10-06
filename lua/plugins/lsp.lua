@@ -1,3 +1,4 @@
+
 local servers = {
     "gopls",
     "pyright",
@@ -6,9 +7,10 @@ local servers = {
     "jdtls",
     "texlab",
     "emmet_ls",
-    "tsserver",
+    "ts_ls",
     "hls",
     -- "haskell_language_server",
+    --
 }
 
 local function on_attach(client, bufnr)
@@ -21,9 +23,6 @@ local function on_attach(client, bufnr)
     vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
     vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
-    if client.name == "hls" then
-        vim.keymap.set('n', '<leader>ll', vim.lsp.codelens.run, { buffer = bufnr })
-    end
 end
 
 return {
