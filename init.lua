@@ -29,4 +29,6 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 
 vim.opt.rtp:prepend(lazypath)
 require("config.tabulation")
+require("config.windows").setup()
 require("lazy").setup("plugins")
+

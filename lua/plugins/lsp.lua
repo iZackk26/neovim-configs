@@ -11,7 +11,8 @@ local servers = {
     "hls",
     "efm",
     "tailwindcss",
-    "volar"
+    "volar",
+    "prolog_ls"
 }
 
 local function on_attach(client, bufnr)

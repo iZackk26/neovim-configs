@@ -34,6 +34,8 @@ return {
     vim.keymap.set("n", "<C-b>", ":Neotree toggle<CR>", { silent = true, noremap = true, desc = "Toggle NeoTree" })
     vim.keymap.set("n", "<leader>e", ":Neotree focus<CR>", { silent = true })
 
+    vim.keymap.set("n", "<leader>w", ":Neotree close<CR>", { silent = true, noremap = true, desc = "Close NeoTree" })
+
 
   end
 }

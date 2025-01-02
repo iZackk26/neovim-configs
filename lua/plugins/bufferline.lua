@@ -22,9 +22,9 @@ return {
       }
     }
 
-    -- Opciones de navegación entre pestañas
-    vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>", { silent = true })
-    vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>", { silent = true })
+    -- Mapeos de navegación entre buffers
+    vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>", { silent = true, desc = "Next Buffer" })
+    vim.keymap.set("n", "<S-j>", ":BufferLineCyclePrev<CR>", { silent = true, desc = "Previous Buffer" })
   end,
 }
 
